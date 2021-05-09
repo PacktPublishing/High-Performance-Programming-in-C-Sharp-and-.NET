@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30420.98
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH02_PythonIntegration", "CH02_PythonIntegration\CH02_PythonIntegration.csproj", "{DAA77A35-D8BA-4541-B163-31A857952FB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAA77A35-D8BA-4541-B163-31A857952FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA77A35-D8BA-4541-B163-31A857952FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA77A35-D8BA-4541-B163-31A857952FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA77A35-D8BA-4541-B163-31A857952FB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C92F08CF-E596-4C94-B983-A441880A6A45}
+	EndGlobalSection
+EndGlobal

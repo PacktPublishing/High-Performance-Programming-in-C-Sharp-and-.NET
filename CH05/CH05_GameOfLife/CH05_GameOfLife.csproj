@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="img\ad1.png" />
+    <None Remove="img\ad2.png" />
+    <None Remove="img\ad3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="img\ad1.png" />
+    <EmbeddedResource Include="img\ad2.png" />
+    <EmbeddedResource Include="img\ad3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0-preview.2.21154.6" />
+  </ItemGroup>
+
+</Project>

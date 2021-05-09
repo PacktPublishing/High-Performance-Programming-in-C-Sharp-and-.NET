@@ -1,0 +1,50 @@
+﻿@page "/"
+@using CH09_gRpcWeb.Shared;
+@inject IGrpcWebService GrpcWebService
+
+<EditForm Model="@request" OnValidSubmit="Submit">
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td><InputNumber @bind-Value="request.Id" /></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><InputText @bind-Value="request.Name" /></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><InputText @bind-Value="request.Description" /></td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit" />
+</EditForm>
+
+@if (@response != null)
+{
+<table>
+    <tr>
+        <td>Id:</td>
+        <td>@response.NewId</td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td>@response.NewName</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>@response.NewDescription</td>
+    </tr>
+</table>
+}
+
+@code
+{
+    GrpcWebRequest request = new GrpcWebRequest() { Id = 1, Name = "Product Name", Description = "Product Description" };
+    GrpcWebResponse response;
+
+    async Task Submit()
+    {
+        this.response = await GrpcWebService.DoWork(request);
+    }
+}

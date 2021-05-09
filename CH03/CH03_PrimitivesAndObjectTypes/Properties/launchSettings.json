@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CH03_PrimitivesAndObjectTypes": {
+      "commandName": "Project",
+      "sqlDebugging": false,
+      "nativeDebugging": true
+    }
+  }
+}

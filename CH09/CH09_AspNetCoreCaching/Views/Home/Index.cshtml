@@ -1,0 +1,17 @@
+﻿@model DateTime?
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="row">
+    <span>
+        When Cached: @Model.Value.ToString();
+    </span>
+    <span>
+        Current Time: @DateTime.Now.ToString();
+    </span>
+</div>
+

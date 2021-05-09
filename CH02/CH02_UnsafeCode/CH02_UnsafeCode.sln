@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30516.212
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH02_UnsafeCode", "CH02_UnsafeCode\CH02_UnsafeCode.csproj", "{CF195CB6-72C2-4A03-A0FE-1B0354F299A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF195CB6-72C2-4A03-A0FE-1B0354F299A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF195CB6-72C2-4A03-A0FE-1B0354F299A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF195CB6-72C2-4A03-A0FE-1B0354F299A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF195CB6-72C2-4A03-A0FE-1B0354F299A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {471D6D3E-7B9A-435E-8908-AFB7840DA9ED}
+	EndGlobalSection
+EndGlobal
