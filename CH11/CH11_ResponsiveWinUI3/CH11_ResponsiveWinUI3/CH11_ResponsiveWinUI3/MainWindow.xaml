@@ -1,0 +1,18 @@
+﻿<Window
+    x:Class="CH11_ResponsiveWinUI3.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:DefaultBindMode="TwoWay"
+    mc:Ignorable="d">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible">
+        <StackPanel x:Name="ProgressPanel">
+            <ProgressRing IsActive="True" />
+            <TextBlock x:Name="ProgressUpdater" Text="Loading..." TextAlignment="Left" TextWrapping="WrapWholeWords" TextTrimming="CharacterEllipsis" />
+        </StackPanel>
+        <StackPanel x:Name="HomePanel" Visibility="Collapsed">
+            <TextBlock Text="Home Window" />
+        </StackPanel>
+    </StackPanel>
+</Window>

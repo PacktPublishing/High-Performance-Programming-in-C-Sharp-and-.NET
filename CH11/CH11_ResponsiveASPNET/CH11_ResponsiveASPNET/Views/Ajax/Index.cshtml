@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Ajax Example</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Ajax Demonstration</legend>
+            <form>
+                <input type="button" value="Ajax Demonstration" id="ajaxDemonstrationButton" />
+                <br />
+                <span id="ajaxDemoResult"></span>
+            </form>
+        </fieldset>
+
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+            crossorigin="anonymous"
+        >
+                
+        </script>
+        <script>
+            $(document).ready(function( ) {
+                $('#ajaxDemonstrationButton').click(function() {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Ajax/Demo',
+                        success: function (result) {
+                            $('#ajaxDemoResult').html(result);
+                        }
+                    });
+                });
+            });            
+        </script>
+    </body>
+</html>
