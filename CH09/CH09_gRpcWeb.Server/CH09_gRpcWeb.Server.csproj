@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.33.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.0" />
-    <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.136" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.38.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.0-preview.6.21355.2" />
+    <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.152" />
   </ItemGroup>
 
   <ItemGroup>

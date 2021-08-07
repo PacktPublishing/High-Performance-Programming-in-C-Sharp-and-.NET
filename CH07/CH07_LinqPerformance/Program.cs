@@ -7,15 +7,19 @@
 
 	class Program
 	{
-
 		static void Main(string[] args)
 		{
-			BenchmarkRunner.Run<LinqPerformance>();
-			//ExtendingLinq extendingLinq = new ExtendingLinq();
-			//extendingLinq.PrintJsonData();
-			//extendingLinq.PrintObjectData();
-			//extendingLinq.SerializeDeserialize();
-		}
+			//ClosureExample closureExample = new ClosureExample();
+			//closureExample.DisplayGreeting();
+			//closureExample.LinqClosureUsingParameters();
+			//closureExample.LinqClosureUsingVariables();
+            //BenchmarkRunner.Run<DatabaseQueryAndIteration>();
+            BenchmarkRunner.Run<LinqPerformance>();
+            //ExtendingLinq extendingLinq = new ExtendingLinq();
+            //extendingLinq.PrintJsonData();
+            //extendingLinq.PrintObjectData();
+            //extendingLinq.SerializeDeserialize();
+        }
 
 		private static void IEnumerableVsIEnumeratorExample()
 		{

@@ -4,27 +4,23 @@
 
     public class Product
     {
-        private int _id;
-        private string _name;
-        private string _description;
-
         public Product() { }
 
         public Product(int id)
         {
-            _id = id;
-            _name = $"Item {_id} Name";
-            _description = $"Item {_id} description.";
+            Id = id;
+            Name = $"Item {Id} Name";
+            Description = $"Item {Id} description.";
         }
 
         [Key]
-        public int Id { get { return _id; } }
-        public string Name { get { return _name; } }
-        public string Description { get { return _description; } }
+        public int Id { get; private set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
 
         public override string ToString()
         {
-            return $"Id: {_id}, Name: {_name}, Description: {_description}";
+            return $"Id: {Id}, Name: {Name}, Description: {Description}";
         }
     }
 }

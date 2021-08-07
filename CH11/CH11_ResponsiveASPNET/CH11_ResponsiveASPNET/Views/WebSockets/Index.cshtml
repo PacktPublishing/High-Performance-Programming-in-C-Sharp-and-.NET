@@ -1,8 +1,4 @@
 ﻿<script type = "text/javascript">  
-    function myfunction() {   
-        alert("how are you");  
-    }  
-
     function WebSocketExample (){
 
         var socket = new WebSocket("wss://javascript.info/article/websocket/demo/hello");
@@ -56,76 +52,3 @@
 
 
 
-
-
-<!--
-
-
-
-<div id="messages" onload="WebSocketExample"></div>
-
-<input id="clickMe" type="button" value="clickme" onclick="alert("Executed JavaScript");" />
-
-<form method="post" action="">
-user name:<br />
-<input type="text" name="user_name" value="" /><br />
-    <br />
-<input type="submit" value='notEmpty' onclick="notEmpty" onkeypress="notEmpty" class="submit" />
-</form>
-
-<script type="text/javascript">
-
-function notEmpty(){
-        var myTextField = document.getElementById('user_name');
-   
-
-                alert("You entered: " + myTextField.value);
-}
-	
-    var doFunction = function (){
-        alert("Executed JavaScript");
-    }
-
-    var WebSocketExample = function () {
-
-        alert('Yer man!');
-
-        let socket = new WebSocket("wss://javascript.info/article/websocket/demo/hello");
-    
-        let messages = document.getElementById('messages')
-        let innerHtml = messages.innerHTML;
-
-        socket.onopen = function(e) {
-            innerHtml = '<p>[open] Connection established</p>';
-            messages.innerHTML = innerHTML;
-            innerHtml += '<p>Sending to server</p>';
-            messages.innerHTML = innerHTML;
-            socket.send('WebSocket message!');
-        };
-
-        socket.onmessage = function(event) {
-            innerHtml += `<p>[message] Data received from server: ${event.data}</p>`;
-        };
-
-        socket.onclose = function(event) {
-            if (event.wasClean) {
-                innerHtml += `<p>[close] Connection closed cleanly, code=${event.code} reason=${event.reason}</p>`);
-            messages.innerHTML = innerHTML;
-            } else {
-                // e.g. server process killed or network down
-                // event.code is usually 1006 in this case
-                innerHTML += '<p>[close] Connection died</p>';
-            messages.innerHTML = innerHTML;
-            }
-        };
-
-        socket.onerror = function(error) {
-            innerHTML += `<p>[error] ${error.message}</p>`;
-            messages.innerHTML = innerHTML;
-        };
-
-    }
-
-</script>
-
--->

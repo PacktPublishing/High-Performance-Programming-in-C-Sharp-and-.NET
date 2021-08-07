@@ -61,7 +61,7 @@ namespace CH11_ResponsiveWPF
 				{
 					// Perform a time consuming operation and report progress.
 					_operationNumber = i;
-					System.Threading.Thread.Sleep(100);
+					System.Threading.Thread.Sleep(3000);
 					worker.ReportProgress((i / 100) * 100);
 				}
 			}
@@ -76,23 +76,13 @@ namespace CH11_ResponsiveWPF
 		private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Cancelled == true)
-			{
-				StatusLabel.Content = "Cancelled!"; 
-				Thread.Sleep(1500);
-				StatusPanel.Visibility = Visibility.Collapsed;
-			}
+				StatusLabel.Content = "Cancelled!";
 			else if (e.Error != null)
-			{
 				StatusLabel.Content = "Error: " + e.Error.Message;
-				Thread.Sleep(1500);
-				StatusPanel.Visibility = Visibility.Collapsed;
-			}
 			else
-			{
 				StatusLabel.Content = "Done!";
-				Thread.Sleep(1500);
-				StatusPanel.Visibility = Visibility.Collapsed;
-			}
+			Thread.Sleep(1500);
+			StatusPanel.Visibility = Visibility.Collapsed;
 		}
 
 		private IEnumerable PagedData()

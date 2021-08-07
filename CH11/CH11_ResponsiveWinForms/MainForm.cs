@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CH11_ResponsiveWinForms
@@ -41,7 +36,8 @@ namespace CH11_ResponsiveWinForms
 			}
 			splashScreen.Close();
 			DataTable.DataSource = PagedProducts();
-			LongRunningProgress();
+			PageTextBox.Text = $"Page {_currentPage} of {PageCount()}";
+			LongRunningProcess();
 		}
 
 		private void BuildCollection()
@@ -53,11 +49,10 @@ namespace CH11_ResponsiveWinForms
 			}
 		}
 
-		private void LongRunningProgress()
+		private void LongRunningProcess()
 		{
 			if (LongRunningProcessBackgroundWorker.IsBusy != true)
 			{
-				// Start the asynchronous operation.
 				LongRunningProcessBackgroundWorker.RunWorkerAsync();
 			}
 		}
@@ -98,17 +93,11 @@ namespace CH11_ResponsiveWinForms
 		private void LongRunningProcessBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Cancelled == true)
-			{
 				StatusLabel.Text = "Canceled!";
-			}
 			else if (e.Error != null)
-			{
 				StatusLabel.Text = "Error: " + e.Error.Message;
-			}
 			else
-			{
 				StatusLabel.Text = "Done!";
-			}
 		}
 
 		private void LongRunningOperationCancelButton_Click(object sender, EventArgs e)
@@ -117,6 +106,8 @@ namespace CH11_ResponsiveWinForms
 			{
 				// Cancel the asynchronous operation.
 				LongRunningProcessBackgroundWorker.CancelAsync();
+				LongRunningOperationCancelButton.Visible = false;
+				StatusBar.Visible = false;
 			}
 		}
 

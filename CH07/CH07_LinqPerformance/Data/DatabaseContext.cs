@@ -6,19 +6,15 @@
 	public class DatabaseContext : DbContext
 	{
 		public DbSet<Product> Products { get; set; }
-        private string _connectionString;
 
-        public DatabaseContext(string connectionString)
-		{
-            _connectionString = connectionString;
+        public DatabaseContext(string connectionString) : base(GetOptions(connectionString))
+        {
+          
 		}
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        private static DbContextOptions GetOptions(string connectionString)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(_connectionString);
-            }
+            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
