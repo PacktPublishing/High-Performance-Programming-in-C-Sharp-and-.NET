@@ -3,7 +3,7 @@
     using Microsoft.Extensions.Configuration;
     using System;
     using System.IO;
-    
+
     internal class SecretsManager
     {
         public static IConfiguration Configuration { get; private set; }
@@ -25,7 +25,7 @@
 
             Configuration = builder.Build();
 
-            return Configuration.GetSection(sectionName).Value;
+            return Configuration.GetSection($"{typeof(T).Name}:{sectionName}").Value;
         }
     }
 }

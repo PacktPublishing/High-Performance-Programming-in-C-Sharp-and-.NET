@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-windows10.0.20348.0</TargetFrameworks>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<OutputType>WinExe</OutputType>
+		<TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<RootNamespace>CH12_ResponsiveMAUI</RootNamespace>
+
+		<!-- Required - Enable Single Project for WinUI -->
+		<EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+		<WindowsPackageType>MSIX</WindowsPackageType>
+		<Configurations>Debug;Release;WindowsDebug</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiImage Include="..\CH12_ResponsiveMAUI\Resources\appicon.svg" Link="Resources\appicon.svg" ForegroundFile="..\CH12_ResponsiveMAUI\Resources\appiconfg.svg" IsAppIcon="true" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="..\CH12_ResponsiveMAUI\Resources\appiconfg.svg" Link="Resources\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Images -->
+		<MauiImage Include="..\CH12_ResponsiveMAUI\Resources\Images\*" Link="Resources\Images\%(Filename)%(Extension)" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="..\CH12_ResponsiveMAUI\Resources\Fonts\*" Link="Resources\Fonts\%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\CH12_ResponsiveMAUI\**\*.cs" Exclude="..\CH12_ResponsiveMAUI\bin\**;..\CH12_ResponsiveMAUI\obj\**;..\CH12_ResponsiveMAUI\Platforms\**" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiXaml Include="..\CH12_ResponsiveMAUI\**\*.xaml" Exclude="..\CH12_ResponsiveMAUI\bin\**;..\CH12_ResponsiveMAUI\obj\**" Link="%(RecursiveDir)%(FileName)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.ProjectReunion" Version="0.8.1" />
+		<PackageReference Include="Microsoft.ProjectReunion.Foundation" Version="0.8.1" />
+		<PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="0.8.1" />
+		<PackageReference Include="Microsoft.ProjectReunion.InteractiveExperiences" Version="0.8.1" NoWarn="NU1701" />
+	</ItemGroup>
+
+</Project>

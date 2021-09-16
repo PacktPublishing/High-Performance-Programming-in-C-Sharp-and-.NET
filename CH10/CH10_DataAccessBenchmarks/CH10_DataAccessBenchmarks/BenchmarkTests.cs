@@ -1,4 +1,4 @@
-﻿namespace CH10_DataAccessBenchmarks
+﻿ namespace CH10_DataAccessBenchmarks
 {
 	using BenchmarkDotNet.Attributes;
 	using BenchmarkDotNet.Order;
