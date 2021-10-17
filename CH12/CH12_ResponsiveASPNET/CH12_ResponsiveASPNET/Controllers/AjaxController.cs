@@ -13,7 +13,7 @@ namespace CH12_ResponsiveASPNET.Controllers
 			return View();
 		}
 
-		public IActionResult AjaxDemo()
+		public IActionResult Demo()
 		{
 			return new JsonResult("Ajax Demo Result");
 		}

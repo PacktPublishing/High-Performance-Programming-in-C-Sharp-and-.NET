@@ -1,5 +1,6 @@
 ﻿using CH12_ResponsiveASPNET.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
 namespace CH12_ResponsiveASPNET.Controllers
