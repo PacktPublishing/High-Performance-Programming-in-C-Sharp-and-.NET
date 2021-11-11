@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CH04_OutOfMemoryExceptions", "CH04_OutOfMemoryExceptions.csproj", "{BE262AD0-8681-412B-AE17-8FB91D6C5CC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE262AD0-8681-412B-AE17-8FB91D6C5CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE262AD0-8681-412B-AE17-8FB91D6C5CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE262AD0-8681-412B-AE17-8FB91D6C5CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE262AD0-8681-412B-AE17-8FB91D6C5CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5C3C61E-2340-4565-BDB0-EE382C9FFAA5}
+	EndGlobalSection
+EndGlobal
