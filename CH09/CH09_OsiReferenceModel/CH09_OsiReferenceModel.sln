@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31825.309
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CH09_OsiReferenceModel", "CH09_OsiReferenceModel.csproj", "{72155C5B-2E83-4552-BBBD-A408CCDD987A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH09_OsiReferenceModel", "CH09_OsiReferenceModel\CH09_OsiReferenceModel.csproj", "{CFC8EE6F-7090-4AA7-A084-DCB74C161B92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72155C5B-2E83-4552-BBBD-A408CCDD987A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72155C5B-2E83-4552-BBBD-A408CCDD987A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72155C5B-2E83-4552-BBBD-A408CCDD987A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72155C5B-2E83-4552-BBBD-A408CCDD987A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC8EE6F-7090-4AA7-A084-DCB74C161B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC8EE6F-7090-4AA7-A084-DCB74C161B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC8EE6F-7090-4AA7-A084-DCB74C161B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC8EE6F-7090-4AA7-A084-DCB74C161B92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {794485F0-62D1-4BA5-A603-1FC33A5A2CB3}
+		SolutionGuid = {A7487E11-06BA-4BEB-97FA-C7A4E5DE24E9}
 	EndGlobalSection
 EndGlobal

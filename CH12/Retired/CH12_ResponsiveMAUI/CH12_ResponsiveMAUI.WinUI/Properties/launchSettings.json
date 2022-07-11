@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "CH12_ResponsiveMAUI.WinUI": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": false
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}

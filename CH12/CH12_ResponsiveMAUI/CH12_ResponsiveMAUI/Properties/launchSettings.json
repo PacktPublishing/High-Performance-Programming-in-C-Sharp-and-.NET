@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "CH12_ResponsiveMAUI": {
-      "commandName": "Project",
-      "workingDirectory": "C:\\Experimental\\CH12_ResponsiveMAUI\\CH12_ResponsiveMAUI\\bin\\Debug\\net6.0-windows\\windows"
+    "Windows Machine": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": false
     }
   }
 }

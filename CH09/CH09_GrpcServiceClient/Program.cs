@@ -8,18 +8,18 @@ namespace CH08_GrpcServiceClient
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static async void Main(string[] args)
 		{
-			ExecuteGrpcClient().Wait();
+			await ExecuteGrpcClient();
 		}
 
-		private static async Task ExecuteGrpcClient()
+		static async Task ExecuteGrpcClient()
 		{
 			await SingleGrpcMessageResponse();
 			await GrpcMessageResponseStream();
 		}
 
-		private static async Task SingleGrpcMessageResponse()
+		static async Task SingleGrpcMessageResponse()
 		{
 			GrpcChannel grpcChannel = GrpcChannel.ForAddress("https://localhost:5001");
 			Greeter.GreeterClient greeterClient = new Greeter.GreeterClient(grpcChannel);
@@ -30,7 +30,7 @@ namespace CH08_GrpcServiceClient
 			Console.WriteLine($"Message From gRPC Server: {helloReply.Message}");
 		}
 
-		private static async Task GrpcMessageResponseStream()
+		static async Task GrpcMessageResponseStream()
 		{
 			GrpcChannel grpcChannel = GrpcChannel.ForAddress("https://localhost:5001");
 			Greeter.GreeterClient greeterClient = new Greeter.GreeterClient(grpcChannel);

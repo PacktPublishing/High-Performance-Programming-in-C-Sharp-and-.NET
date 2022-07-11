@@ -1,46 +1,24 @@
-﻿using System;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+﻿namespace CH12_ResponsiveMAUI;
 
-namespace CH12_ResponsiveMAUI
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
-    {
-        private string _message;
-        private int _count;
+	int count = 0;
 
-        public MainPage()
-        {
-            InitializeComponent();
-            MessageLabelProperty = "MAUI looks promising!";
-        }
+	public MainPage()
+	{
+		InitializeComponent();
+	}
 
-        public string MessageLabelProperty
-        {
-            get { return _message; }
-            set
-            {
-                _message = value;
-                OnPropertyChanged(nameof(MessageLabelProperty));
-            }
-        }
+	private void OnCounterClicked(object sender, EventArgs e)
+	{
+		count++;
 
-        private void SetSemanticFocusButton_Clicked(object sender, EventArgs e)
-        {
-            SemanticFocusLabel.SetSemanticFocus();
-            SemanticFocusLabel.Text = "Received semantic focus";
-        }
+		if (count == 1)
+			CounterBtn.Text = $"Clicked {count} time";
+		else
+			CounterBtn.Text = $"Clicked {count} times";
 
-        public void MakeAnnouncementButton_Clicked(object sender, EventArgs e)
-        {
-            SemanticScreenReader.Announce("Make your applications accessible to MAUI users!");
-        }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            _count++;
-            CounterLabel.Text = $"Current count: {_count}";
-        }
-    }
+		SemanticScreenReader.Announce(CounterBtn.Text);
+	}
 }
+

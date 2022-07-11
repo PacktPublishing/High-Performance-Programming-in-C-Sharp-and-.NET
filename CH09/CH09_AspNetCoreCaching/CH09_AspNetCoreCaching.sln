@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31521.260
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH09_AspNetCoreCaching", "CH09_AspNetCoreCaching\CH09_AspNetCoreCaching.csproj", "{AADB42C8-AB90-4CB4-84DC-9EA512B92C42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH09_AspNetCoreCaching", "CH09_AspNetCoreCaching\CH09_AspNetCoreCaching.csproj", "{4E6B2A60-E7C6-4D4B-BC22-9060BFFCA3FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AADB42C8-AB90-4CB4-84DC-9EA512B92C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AADB42C8-AB90-4CB4-84DC-9EA512B92C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AADB42C8-AB90-4CB4-84DC-9EA512B92C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AADB42C8-AB90-4CB4-84DC-9EA512B92C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6B2A60-E7C6-4D4B-BC22-9060BFFCA3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6B2A60-E7C6-4D4B-BC22-9060BFFCA3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6B2A60-E7C6-4D4B-BC22-9060BFFCA3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6B2A60-E7C6-4D4B-BC22-9060BFFCA3FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C8A4DD33-0153-4B45-AA77-E538AEED555F}
+		SolutionGuid = {1A5FEBD1-6635-422A-99A5-6E4D9718906B}
 	EndGlobalSection
 EndGlobal

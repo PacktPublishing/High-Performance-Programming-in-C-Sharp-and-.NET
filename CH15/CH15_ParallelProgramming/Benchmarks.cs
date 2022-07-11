@@ -5,22 +5,22 @@
 
     public class Benchmarks
     {
-        private short[] data;
+        private Int16[] integers;
 
         [GlobalSetup]
-        public void Setup()
+        public void GlobalSetup()
         {
-            data = new short[short.MaxValue];
-            for (short x = 1; x <= data.Length - 1; x++)
+            integers = new Int16[Int16.MaxValue];
+            for (short x = 1; x <= integers.Length - 1; x++)
             {
-                data[x] = x;
+                integers[x] = x;
             }
         }
 
         [Benchmark]
         public void StandardForEachLoopExample()
         {
-            foreach (int x in data)
+            foreach (int x in integers)
                 Console.WriteLine($"Item {x}: {x}");
         }
 
@@ -28,117 +28,125 @@
         [Benchmark]
         public void ParallelForEachLoopExample()
         {
-            Parallel.ForEach(data, x => {
+            Parallel.ForEach(integers, x => {
                 Console.WriteLine($"Item {x}: {x}");
             });
         }
 
         [Benchmark]
-        public List<string> UrlDownloader1()
+        public List<string> DownloadWebsites1()
         {
-            List<string> urlContent = new();
-            HttpClient client = new();
+            List<string> websitesContent = new();
+            HttpClient httpClient = new();
 
-            var urls = new[]
-                {
-                    "http://google.com",
-                    "http://yahoo.com",
-                    "http://stackoverflow.com"
-                };
-
-            foreach (var url in urls)
+            string[]? websites = new[]
             {
-                Console.WriteLine($"starting to download {url}");
-                string result = client.GetStringAsync(url).GetAwaiter().GetResult();
-                urlContent.Add(result);
-                Console.WriteLine($"finished downloading {url}");
+                "http://docs.microsoft.com",
+                "http://ownCloud.com",
+                "https://www.oanda.com/uk-en/",
+                "http://https://www.oanda.com/uk-en/",
+                "https://azure.microsoft.com/en-gb/"
+            };
+
+            foreach (string? website in websites)
+            {
+                Console.WriteLine($"Downloading of {website} content has started.");
+                string websiteContent = httpClient.GetStringAsync(website).GetAwaiter().GetResult();
+                websitesContent.Add(websiteContent);
+                Console.WriteLine($"Downloading of {website} content has finished.");
             }
 
-            client.Dispose();
+            httpClient.Dispose();
 
-            return urlContent;
+            return websitesContent;
         }
 
         [Benchmark]
-        public List<string> UrlDownloader2()
+        public List<string> DownloadWebsites2()
         {
-            List<string> urlContent = new();
+            List<string> websitesContent = new();
 
-            var urls = new[]
+            string[]? websites = new[]
                 {
-                    "http://google.com",
-                    "http://yahoo.com",
-                    "http://stackoverflow.com"
+                    "http://docs.microsoft.com",
+                    "http://ownCloud.com",
+                    "https://www.oanda.com/uk-en/",
+                    "http://https://www.oanda.com/uk-en/",
+                    "https://azure.microsoft.com/en-gb/"
                 };
 
-            var tasks = urls
-                .Select(url => Task.Factory.StartNew(
+            Task[]? downloadJobs = websites
+                .Select(jobs => Task.Factory.StartNew(
                     state =>
                     {
-                        using var client = new HttpClient();
-                        var url = (string)state;
-                        Console.WriteLine($"starting to download {url}");
-                        string result = client.GetStringAsync(url).GetAwaiter().GetResult();
-                        urlContent.Add(result);
-                        Console.WriteLine($"finished downloading {url}");
-                    }, url)
+                        using HttpClient? httpClient = new HttpClient();
+                        string? website = state == null ? String.Empty : (string)state;
+                        Console.WriteLine($"Downloading of {website} content has started.");
+                        string result = httpClient.GetStringAsync(website).GetAwaiter().GetResult();
+                        websitesContent.Add(result);
+                        Console.WriteLine($"Downloading of {website} content has finished.");
+                    }, jobs)
                 )
                 .ToArray();
 
-            Task.WaitAll(tasks);
-            return urlContent;
+            Task.WaitAll(downloadJobs);
+            return websitesContent;
         }
 
         [Benchmark]
-        public List<string> UrlDownloader3()
+        public List<string> DownloadWebsites3()
         {
-            List<string> urlContent = new();
-            HttpClient client = new();
+            List<string> websitesContent = new();
+            HttpClient httpClient = new();
 
-            List<string> urls = new()
-                {
-                    "http://google.com",
-                    "http://yahoo.com",
-                    "http://stackoverflow.com"
-                };
-
-            urls.ForEach(url =>
+            List<string> websites = new()
             {
-                Console.WriteLine($"starting to download {url}");
-                string result = client.GetStringAsync(url).GetAwaiter().GetResult();
-                urlContent.Add(result);
-                Console.WriteLine($"finished downloading {url}");
-            });
-
-            client.Dispose();
-
-            return urlContent;
-        }
-
-        [Benchmark]
-        public List<string> UrlDownloader4()
-        {
-            List<string> urlContent = new();
-            HttpClient client = new();
-
-            List<string> urls = new()
-            {
-                "http://google.com",
-                "http://yahoo.com",
-                "http://stackoverflow.com"
+                "http://docs.microsoft.com",
+                "http://ownCloud.com",
+                "https://www.oanda.com/uk-en/",
+                "http://https://www.oanda.com/uk-en/",
+                "https://azure.microsoft.com/en-gb/"
             };
 
-            Parallel.ForEach(urls, url =>
+            websites.ForEach(website =>
             {
-                Console.WriteLine($"starting to download {url}");
-                string result = client.GetStringAsync(url).GetAwaiter().GetResult();
-                urlContent.Add(result);
-                Console.WriteLine($"finished downloading {url}");
+                Console.WriteLine($"Downloading of {website} content has started.");
+                string result = httpClient.GetStringAsync(website).GetAwaiter().GetResult();
+                websitesContent.Add(result);
+                Console.WriteLine($"Downloading of {website} content has finished.");
             });
 
-            client.Dispose();
+            httpClient.Dispose();
 
-            return urlContent;
+            return websitesContent;
+        }
+
+        [Benchmark]
+        public List<string> DownloadWebsites4()
+        {
+            List<string> websitesContent = new();
+            HttpClient httpClient = new();
+
+            List<string> websites = new()
+            {
+                "http://docs.microsoft.com",
+                "http://ownCloud.com",
+                "https://www.oanda.com/uk-en/",
+                "http://https://www.oanda.com/uk-en/",
+                "https://azure.microsoft.com/en-gb/"
+            };
+
+            Parallel.ForEach(websites, website =>
+            {
+                Console.WriteLine($"Downloading of {website} content has started.");
+                string result = httpClient.GetStringAsync(website).GetAwaiter().GetResult();
+                websitesContent.Add(result);
+                Console.WriteLine($"Downloading of {website} content has finished.");
+            });
+
+            httpClient.Dispose();
+
+            return websitesContent;
         }
     }
 }
