@@ -12,4 +12,8 @@
     <PackageReference Include="Grpc.AspNetCore" Version="2.38.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CH09_gRpcWeb.Shared\CH09_gRpcWeb.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

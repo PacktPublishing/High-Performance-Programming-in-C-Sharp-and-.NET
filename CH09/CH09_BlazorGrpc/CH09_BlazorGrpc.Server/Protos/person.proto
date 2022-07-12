@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "CH09_BlazorGrpc.Client";
+
+package grpcpeople;
+
+service Person {
+  rpc GetPeople (PeopleRequest) returns (PeopleResponse);
+}
+
+message PeopleRequest {
+}
+
+message PeopleResponse{
+	repeated PersonResponse people = 1;
+}
+
+message PersonResponse {
+  string name = 1;
+}

@@ -4,7 +4,7 @@ using Grpc.Net.Client;
 using System;
 using System.Threading.Tasks;
 
-namespace CH08_GrpcServiceClient
+namespace CH09_GrpcServiceClient
 {
 	class Program
 	{

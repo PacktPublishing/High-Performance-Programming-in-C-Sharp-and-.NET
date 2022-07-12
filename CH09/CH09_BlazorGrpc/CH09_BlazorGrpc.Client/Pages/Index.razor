@@ -1,0 +1,27 @@
+﻿@page "/"
+
+@using CH09_BlazorGrpc.Client
+
+<PageTitle>Index</PageTitle>
+
+<h1>People from Grpc Service</h1>
+
+@foreach(var person in model.People)
+{
+    <p>Name : @person.Name</p>
+}    
+
+@code{
+    private PeopleResponse model = new PeopleResponse();
+
+    protected override async Task OnInitializedAsync()
+    {
+            using var channel = GrpcChannel.ForAddress("https://localhost:7272/", new GrpcChannelOptions
+    {
+        HttpHandler = new GrpcWebHandler(new HttpClientHandler())
+    });
+            var client = new Person.PersonClient(channel);
+            model = await client.GetPeopleAsync(
+                              new PeopleRequest { });
+    }
+}
