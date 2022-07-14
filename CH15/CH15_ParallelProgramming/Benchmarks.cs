@@ -28,7 +28,8 @@
         [Benchmark]
         public void ParallelForEachLoopExample()
         {
-            Parallel.ForEach(integers, x => {
+            Parallel.ForEach(integers, x =>
+            {
                 Console.WriteLine($"Item {x}: {x}");
             });
         }
@@ -41,10 +42,9 @@
 
             string[]? websites = new[]
             {
-                "http://docs.microsoft.com",
-                "http://ownCloud.com",
+                "https://docs.microsoft.com",
+                "https://ownCloud.com",
                 "https://www.oanda.com/uk-en/",
-                "http://https://www.oanda.com/uk-en/",
                 "https://azure.microsoft.com/en-gb/"
             };
 
@@ -68,11 +68,10 @@
 
             string[]? websites = new[]
                 {
-                    "http://docs.microsoft.com",
-                    "http://ownCloud.com",
-                    "https://www.oanda.com/uk-en/",
-                    "http://https://www.oanda.com/uk-en/",
-                    "https://azure.microsoft.com/en-gb/"
+                "https://docs.microsoft.com",
+                "https://ownCloud.com",
+                "https://www.oanda.com/uk-en/",
+                "https://azure.microsoft.com/en-gb/"
                 };
 
             Task[]? downloadJobs = websites
@@ -101,10 +100,9 @@
 
             List<string> websites = new()
             {
-                "http://docs.microsoft.com",
-                "http://ownCloud.com",
+                "https://docs.microsoft.com",
+                "https://ownCloud.com",
                 "https://www.oanda.com/uk-en/",
-                "http://https://www.oanda.com/uk-en/",
                 "https://azure.microsoft.com/en-gb/"
             };
 
@@ -129,10 +127,9 @@
 
             List<string> websites = new()
             {
-                "http://docs.microsoft.com",
-                "http://ownCloud.com",
+                "https://docs.microsoft.com",
+                "https://ownCloud.com",
                 "https://www.oanda.com/uk-en/",
-                "http://https://www.oanda.com/uk-en/",
                 "https://azure.microsoft.com/en-gb/"
             };
 

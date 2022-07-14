@@ -8,6 +8,7 @@ namespace CH15_ParallelProgramming
         {
             //RunSingleProcessorExample();
             //Parallel.For(0, 1000000, x => MultipleProcessorExample(x));
+            //FuncAction();
             BenchmarkRunner.Run<Benchmarks>();
         }
 
@@ -33,6 +34,32 @@ namespace CH15_ParallelProgramming
         {
             string output = "Index: ";
             Console.WriteLine($"{output}{index}");
+        }
+
+        static void FuncAction()
+        {
+            int[] numbers = { 15, 10, 12, 17, 11, 13, 16, 14, 18 };
+            int additionResult = 0;
+
+            try
+            {
+                Parallel.ForEach(
+                    numbers,
+                    () => 0,
+                    (number, currentState, addition) =>
+                    {
+                        addition += number;
+                        Console.WriteLine($"Thread: {Thread.CurrentThread.ManagedThreadId}, Number: {number}, Addition: {addition}");
+                        return addition;
+                    },
+                    (addition) => Interlocked.Add(ref additionResult, addition)
+                );
+                Console.WriteLine($"Addition Result: {additionResult}");
+            }
+            catch (AggregateException e)
+            {
+                Console.WriteLine($"Aggregate Exception: FuncAction.\n{e.Message}");
+            }
         }
     }
 }
