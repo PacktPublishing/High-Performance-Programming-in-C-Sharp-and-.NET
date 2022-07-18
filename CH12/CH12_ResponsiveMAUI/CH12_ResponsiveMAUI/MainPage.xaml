@@ -2,40 +2,68 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CH12_ResponsiveMAUI.MainPage">
-			 
+
     <ScrollView>
-        <VerticalStackLayout 
-            Spacing="25" 
-            Padding="30,0" 
+        <HorizontalStackLayout
+            Spacing="25"
+            Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
+            <StackLayout Margin="20" HorizontalOptions="Start">
+                <CollectionView x:Name="collectionView" ItemsSource="{Binding Entities}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="{Binding Id}" FontAttributes="Bold" />
+                                <Label Grid.Column="2" Text="{Binding FirstName}" FontAttributes="Bold" />
+                                <Label Grid.Column="3" Text="{Binding LastName}" FontAttributes="Bold" />
+                                <Label Grid.Column="4" Text="{Binding CreatedDate}" FontAttributes="Bold" />
+                                <Label Grid.Column="5" Text="{Binding ModifiedDate}" FontAttributes="Bold" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End">
+                <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
-                
-            <Label 
+
+                <Label
                 Text="Hello, World!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
-            
-            <Label 
+
+                <Label
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button 
+                <Button
                 x:Name="CounterBtn"
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+            </StackLayout>
 
-        </VerticalStackLayout>
+        </HorizontalStackLayout>
     </ScrollView>
- 
+
 </ContentPage>

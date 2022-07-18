@@ -12,7 +12,7 @@ ScheduleThreadWithParameters();
 
 // See: https://www.bing.com/search?q=how+to+improve+c%23+multithreading+performance&cvid=fe129561e8564f0bae6d42433b9fcac4&aqs=edge..69i57.10959j0j4&FORM=ANAB01&PC=U531
 
-
+ThreadPool.SetMinThreads(25, 25);
 static void ThreadCreationWithNoParameters()
 {
     Console.WriteLine("-- Executing Method: ThreadCreationWithNoParameters() --");

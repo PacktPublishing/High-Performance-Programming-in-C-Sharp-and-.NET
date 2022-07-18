@@ -20,7 +20,7 @@ namespace CH12_ResponsiveWPF
 		private int _pageSize = 10;
 		private int _currentPage = 1;
 		BackgroundWorker _worker;
-
+		
 		public MainWindow()
 		{
 			InitializeComponent();

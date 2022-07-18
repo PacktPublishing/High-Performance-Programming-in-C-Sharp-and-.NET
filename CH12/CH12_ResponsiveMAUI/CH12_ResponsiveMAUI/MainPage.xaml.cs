@@ -1,22 +1,30 @@
-﻿namespace CH12_ResponsiveMAUI;
+﻿using CH12_ResponsiveMAUI.Data;
+using CH12_ResponsiveMAUI.Models;
+using CH12_ResponsiveMAUI.ViewModels;
+
+namespace CH12_ResponsiveMAUI;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    int _count = 0;
+	PeopleRepository _peopleRepository;
 
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+        BindingContext = new PeopleViewModel();
+    }
+
+    public string Resource { get; set; }
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
-		count++;
+		_count++;
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
+		if (_count == 1)
+			CounterBtn.Text = $"Clicked {_count} time";
 		else
-			CounterBtn.Text = $"Clicked {count} times";
+			CounterBtn.Text = $"Clicked {_count} times";
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
