@@ -6,16 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.21.2" />
+    <PackageReference Include="Google.Protobuf" Version="3.21.4" />
     <PackageReference Include="Grpc.Net.ClientFactory" Version="2.47.0" />
     <PackageReference Include="Grpc.Tools" Version="2.47.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\dev\Original\CH09_gRpcWeb.Shared\CH09_gRpcWeb.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
