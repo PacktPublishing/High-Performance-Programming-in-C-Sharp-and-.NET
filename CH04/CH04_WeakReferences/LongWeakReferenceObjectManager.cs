@@ -1,22 +1,21 @@
-﻿namespace CH04_WeakReferences
+﻿namespace CH04_WeakReferences;
+
+using System;
+using System.Collections.Generic;
+
+internal class LongWeakReferenceObjectManager
 {
-    using System;
-    using System.Collections.Generic;
+    private readonly List<ReferenceObject> Objects = new List<ReferenceObject>();
 
-    internal class LongWeakReferenceObjectManager
+    public void Add(ReferenceObject o)
     {
-        private readonly List<ReferenceObject> Objects = new List<ReferenceObject>();
+        Objects.Add(o);
+    }
 
-        public void Add(ReferenceObject o)
-        {
-            Objects.Add(o);
-        }
-
-        public void ListObjects()
-        {
-            Console.WriteLine("Long Weak Reference Objects: ");
-            foreach (var reference in Objects)
-                Console.WriteLine($"- {reference.Name}");
-        }
+    public void ListObjects()
+    {
+        Console.WriteLine("Long Weak Reference Objects: ");
+        foreach (var reference in Objects)
+            Console.WriteLine($"- {reference.Name}");
     }
 }

@@ -3,7 +3,9 @@ using BenchmarkDotNet.Order;
 using CH10_DataAccessBenchmarks.Configuration;
 using CH10_DataAccessBenchmarks.Data;
 using CH10_DataAccessBenchmarks.Models;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace CH10_DataAccessBenchmarks
 {

@@ -1,44 +1,43 @@
-﻿namespace CH04_Finalization
+﻿namespace CH04_Finalization;
+
+using System;
+using System.ComponentModel.DataAnnotations;
+
+internal class Product : DisposableBase
 {
-    using System;
-    using System.ComponentModel.DataAnnotations;
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public decimal UnitPrice { get; set; }
 
-    internal class Product : DisposableBase
+    private string _cleanUpMethod;
+
+    public Product(string cleanUpMethod)
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal UnitPrice { get; set; }
+        Console.WriteLine("Product constructor.");
+        _cleanUpMethod = cleanUpMethod;
+    }
 
-        private string _cleanUpMethod;
+    ~Product()
+    {
+        Console.WriteLine($"Product finalizer: {_cleanUpMethod}.");
+    }
 
-        public Product(string cleanUpMethod)
-        {
-            Console.WriteLine("Product constructor.");
-            _cleanUpMethod = cleanUpMethod;
-        }
+    public override string ToString()
+    {
+        return $"Id: {Id}, Name: {Name}, Description: {Description}, Unit Price: {UnitPrice}";
+    }
 
-        ~Product()
-        {
-            Console.WriteLine($"Product finalizer: {_cleanUpMethod}.");
-        }
+    protected override void ReleaseManagedResources()
+    {
+        base.ReleaseManagedResources();
+        Console.WriteLine("Releasing managed resources.");
+    }
 
-        public override string ToString()
-        {
-            return $"Id: {Id}, Name: {Name}, Description: {Description}, Unit Price: {UnitPrice}";
-        }
-
-        protected override void ReleaseManagedResources()
-        {
-            base.ReleaseManagedResources();
-            Console.WriteLine("Releasing managed resources.");
-        }
-
-        protected override void ReleaseUnmanagedResources()
-        {
-            base.ReleaseUnmanagedResources();
-            Console.WriteLine("Releasing unmanaged resources.");
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(object);
-        }
+    protected override void ReleaseUnmanagedResources()
+    {
+        base.ReleaseUnmanagedResources();
+        Console.WriteLine("Releasing unmanaged resources.");
+        //System.Runtime.InteropServices.Marshal.ReleaseComObject(object);
     }
 }

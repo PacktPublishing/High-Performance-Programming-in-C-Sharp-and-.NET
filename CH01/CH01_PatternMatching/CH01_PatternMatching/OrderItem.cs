@@ -1,7 +1,6 @@
-﻿namespace CH01_PatternMatching
+﻿namespace CH01_PatternMatching;
+
+internal record OrderItem : Product
 {
-    internal record OrderItem : Product
-    {
-        public int QuantityOrdered { get; init; }
-    }
+    public int QuantityOrdered { get; init; }
 }

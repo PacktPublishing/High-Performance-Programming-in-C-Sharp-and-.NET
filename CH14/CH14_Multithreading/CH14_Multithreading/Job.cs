@@ -1,21 +1,20 @@
-﻿using System;
+﻿namespace CH14_Multithreading;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CH14_Multithreading
+internal class Job
 {
-    internal class Job
+    public void Execute()
     {
-        public void Execute()
-        {
-            Console.WriteLine("Execute() method execute.");
-        }
+        Console.WriteLine("Execute() method execute.");
+    }
 
-        public void PrintMessage(object message)
-        {
-            Console.WriteLine($"Message: {message}");
-        }
+    public void PrintMessage(object message)
+    {
+        Console.WriteLine($"Message: {message}");
     }
 }

@@ -1,8 +1,7 @@
-﻿namespace CH01_Records
+﻿namespace CH01_Records;
+
+internal record Book : Publisher
 {
-    internal record Book : Publisher
-    {
-        public string Title { get; init; }
-        public string Author { get; init; }
-    }
+    public string Title { get; init; }
+    public string Author { get; init; }
 }

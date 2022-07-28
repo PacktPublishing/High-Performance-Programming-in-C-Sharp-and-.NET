@@ -1,27 +1,26 @@
-﻿using System;
+﻿namespace CH04_PreventingMemoryLeaks;
 
-namespace CH04_PreventingMemoryLeaks
+using System;
+
+internal class Product
 {
-    internal class Product
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public decimal UnitPrice { get; set; }
+
+    public Product()
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal UnitPrice { get; set; }
+        Console.WriteLine("Product created.");
+    }
 
-        public Product()
-        {
-            Console.WriteLine("Product created.");
-        }
+    ~Product()
+    {
+        Console.WriteLine("Product destroyed.");
+    }
 
-        ~Product()
-        {
-            Console.WriteLine("Product destroyed.");
-        }
-
-        public override string ToString()
-        {
-            return $"Id: {Id}, Name: {Name}, Description: {Description}, Unit Price: {UnitPrice}";
-        }
+    public override string ToString()
+    {
+        return $"Id: {Id}, Name: {Name}, Description: {Description}, Unit Price: {UnitPrice}";
     }
 }

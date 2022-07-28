@@ -1,19 +1,18 @@
-﻿namespace CH04_PreventingMemoryLeaks
+﻿namespace CH04_PreventingMemoryLeaks;
+
+using System; 
+
+internal class SampleClass
 {
-    using System; 
+    public event EventHandler<EventArgs> RaiseEvent;
 
-    internal class SampleClass
+    public void DoSomething()
     {
-        public event EventHandler<EventArgs> RaiseEvent;
+        OnRaiseEvent();
+    }
 
-        public void DoSomething()
-        {
-            OnRaiseEvent();
-        }
-
-        protected virtual void OnRaiseEvent()
-        {
-            RaiseEvent?.Invoke(this, EventArgs.Empty);
-        }
+    protected virtual void OnRaiseEvent()
+    {
+        RaiseEvent?.Invoke(this, EventArgs.Empty);
     }
 }

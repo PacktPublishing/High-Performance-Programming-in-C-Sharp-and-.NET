@@ -1,45 +1,44 @@
-﻿namespace CH08_FileAndStreamIO
+﻿namespace CH08_FileAndStreamIO;
+
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+[MemoryDiagnoser]
+[Orderer(SummaryOrderPolicy.Declared)]
+[RankColumn]
+public class GettingFileSizes
 {
-	using BenchmarkDotNet.Attributes;
-	using BenchmarkDotNet.Order;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Text;
+	public const string DIRECTORY = @"C:\Windows\System32\";
 
-	[MemoryDiagnoser]
-	[Orderer(SummaryOrderPolicy.Declared)]
-	[RankColumn]
-	public class GettingFileSizes
+	[Benchmark]
+	public int GetDirectorySizeUsingGetFileSystemInfos()
 	{
-		public const string DIRECTORY = @"C:\Windows\System32\";
+		DirectoryInfo directoryInfo = new DirectoryInfo(DIRECTORY);
+		FileSystemInfo[] fileSystemInfos = directoryInfo.GetFileSystemInfos();
 
-		[Benchmark]
-		public int GetDirectorySizeUsingGetFileSystemInfos()
+		int directorySize = 0;
+		for (int i = 0; i < fileSystemInfos.Length; i++)
 		{
-			DirectoryInfo directoryInfo = new DirectoryInfo(DIRECTORY);
-			FileSystemInfo[] fileSystemInfos = directoryInfo.GetFileSystemInfos();
-
-			int directorySize = 0;
-			for (int i = 0; i < fileSystemInfos.Length; i++)
-			{
-				FileInfo fileInfo = fileSystemInfos[i] as FileInfo;
-				if (fileInfo != null)
-					directorySize += (int)fileInfo.Length;
-			}
-			return directorySize;
+			FileInfo fileInfo = fileSystemInfos[i] as FileInfo;
+			if (fileInfo != null)
+				directorySize += (int)fileInfo.Length;
 		}
+		return directorySize;
+	}
 
-		[Benchmark]
-		public int GetDirectorySizeUsingArrayAndFileInfo()
+	[Benchmark]
+	public int GetDirectorySizeUsingArrayAndFileInfo()
+	{
+		string[] files = Directory.GetFiles(DIRECTORY);
+		int directorySize = 0;
+		for (int i = 0; i < files.Length; i++)
 		{
-			string[] files = Directory.GetFiles(DIRECTORY);
-			int directorySize = 0;
-			for (int i = 0; i < files.Length; i++)
-			{
-				directorySize += (int)(new FileInfo(files[i]).Length);
-			}
-			return directorySize;
+			directorySize += (int)(new FileInfo(files[i]).Length);
 		}
+		return directorySize;
 	}
 }

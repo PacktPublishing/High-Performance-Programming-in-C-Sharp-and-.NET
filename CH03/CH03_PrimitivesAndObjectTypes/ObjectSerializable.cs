@@ -1,39 +1,38 @@
-﻿namespace CH03_PrimitivesAndObjectTypes
+﻿namespace CH03_PrimitivesAndObjectTypes;
+
+using System;
+using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+
+[Serializable]
+public class ObjectSerialize : IXmlSerializable
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Xml;
-    using System.Xml.Schema;
-    using System.Xml.Serialization;
+    public object Object { get; set; }
 
-    [Serializable]
-    public class ObjectSerialize : IXmlSerializable
+    public XmlSchema GetSchema()
     {
-        public object Object { get; set; }
+        return new XmlSchema();
+    }
 
-        public XmlSchema GetSchema()
+    public void ReadXml(XmlReader reader)
+    {
+
+    }
+
+    public void WriteXml(XmlWriter writer)
+    {
+        writer.WriteStartElement("Object");
+        var properties = Object.GetType().GetProperties();
+        foreach (var propertyInfo in properties)
         {
-            return new XmlSchema();
-        }
-
-        public void ReadXml(XmlReader reader)
-        {
-
-        }
-
-        public void WriteXml(XmlWriter writer)
-        {
-            writer.WriteStartElement("Object");
-            var properties = Object.GetType().GetProperties();
-            foreach (var propertyInfo in properties)
+            try
             {
-                try
-                {
-                    writer.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(Object).ToString());
-                }
-                catch { }
+                writer.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(Object).ToString());
             }
-            writer.WriteEndElement();
+            catch { }
         }
+        writer.WriteEndElement();
     }
 }

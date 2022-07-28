@@ -1,91 +1,90 @@
-﻿namespace CH16_AsynchronousProgramming
+﻿namespace CH16_AsynchronousProgramming;
+
+using BenchmarkDotNet.Attributes;
+
+public class Benchmarks
 {
-    using BenchmarkDotNet.Attributes;
+    //[Benchmark]
+    //public static void SychronousMethod()
+    //{
+    //    LengthyTask();
+    //}
 
-    public class Benchmarks
+    //[Benchmark]
+    //public static void TaskMethod()
+    //{
+    //    Task.Run(new Action(LengthyTask));
+    //}
+
+    //[Benchmark]
+    //public static void AsynchronousTaskMethod()
+    //{
+    //    var data = async () => await Task.Run(new Action(LengthyTask));
+    //}
+
+    //public static void LengthyTask()
+    //{
+    //    int y = 0;
+    //    for (int x = 0; x < 10; x++)
+    //        y++;
+    //}
+
+    //public static int LengthyTaskReturnsInt()
+    //{
+    //    int y = 0;
+    //    for (int x = 0; x < 10; x++)
+    //        y++;
+    //    return y;
+    //}
+
+    private async Task<int> TaskOne()
     {
-        //[Benchmark]
-        //public static void SychronousMethod()
-        //{
-        //    LengthyTask();
-        //}
+        await Task.Delay(300);
+        return 100;
+    }
 
-        //[Benchmark]
-        //public static void TaskMethod()
-        //{
-        //    Task.Run(new Action(LengthyTask));
-        //}
+    private async Task<string> TaskTwo()
+    {
+        await Task.Delay(300);
+        return "TaskTwo";
+    }
 
-        //[Benchmark]
-        //public static void AsynchronousTaskMethod()
-        //{
-        //    var data = async () => await Task.Run(new Action(LengthyTask));
-        //}
+    //[Benchmark]
+    //public void GetAwaiterGetResult()
+    //{
+    //    int value = Task.Run(() => LengthyTaskReturnsInt()).GetAwaiter().GetResult();
+    //}
 
-        //public static void LengthyTask()
-        //{
-        //    int y = 0;
-        //    for (int x = 0; x < 10; x++)
-        //        y++;
-        //}
+    //[Benchmark]
+    //public async Task Result()
+    //{
+    //    int value = await Task.Run(() => LengthyTaskReturnsInt()).ConfigureAwait(false);
+    //}
 
-        //public static int LengthyTaskReturnsInt()
-        //{
-        //    int y = 0;
-        //    for (int x = 0; x < 10; x++)
-        //        y++;
-        //    return y;
-        //}
+    //[Benchmark]
+    //public void Wait()
+    //{
+    //    Task.Run(() => LengthyTask()).Wait();
+    //}
 
-        private async Task<int> TaskOne()
-        {
-            await Task.Delay(300);
-            return 100;
-        }
+    //[Benchmark]
+    //public void GetAwaiter()
+    //{
+    //    Task.Run(() => LengthyTask()).GetAwaiter();
+    //}
 
-        private async Task<string> TaskTwo()
-        {
-            await Task.Delay(300);
-            return "TaskTwo";
-        }
+    [Benchmark]
+    public async Task SynchronousAwait()
+    {
+        int intValue = await TaskOne();
+        string stringValue = await TaskTwo(); 
+    }
 
-        //[Benchmark]
-        //public void GetAwaiterGetResult()
-        //{
-        //    int value = Task.Run(() => LengthyTaskReturnsInt()).GetAwaiter().GetResult();
-        //}
-
-        //[Benchmark]
-        //public async Task Result()
-        //{
-        //    int value = await Task.Run(() => LengthyTaskReturnsInt()).ConfigureAwait(false);
-        //}
-
-        //[Benchmark]
-        //public void Wait()
-        //{
-        //    Task.Run(() => LengthyTask()).Wait();
-        //}
-
-        //[Benchmark]
-        //public void GetAwaiter()
-        //{
-        //    Task.Run(() => LengthyTask()).GetAwaiter();
-        //}
-
-        [Benchmark]
-        public async Task SynchronousAwait()
-        {
-            int intValue = await TaskOne();
-            string stringValue = await TaskTwo(); 
-        }
-
-        [Benchmark]
-        public async Task AsynchynchronousWhenAll()
-        {
-            var taskOne = TaskOne();
-            var taskTwo = TaskTwo();
-            await Task.WhenAll(taskOne, taskTwo);
-        }
+    [Benchmark]
+    public async Task AsynchynchronousWhenAll()
+    {
+        var taskOne = TaskOne();
+        var taskTwo = TaskTwo();
+        await Task.WhenAll(taskOne, taskTwo);
     }
 }

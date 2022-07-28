@@ -1,30 +1,29 @@
-﻿namespace CH04_PreventingMemoryLeaks.WinForms
+﻿namespace CH04_PreventingMemoryLeaks.WinForms;
+
+using System;
+using System.Threading;
+
+internal class EventOne
 {
-	using System;
-	using System.Threading;
+	public event EventHandler OnEventRaised;
+	private static int _count;
+	
+	public static int Count { get { return _count; } }
 
-	internal class EventOne
+	public EventOne()
 	{
-		public event EventHandler OnEventRaised;
-		private static int _count;
-		
-		public static int Count { get { return _count; } }
+		Interlocked.Increment(ref _count);
+	}
 
-		public EventOne()
-		{
-			Interlocked.Increment(ref _count);
-		}
+	public void RaiseEvent(EventArgs e)
+	{
+		EventHandler eventHandler = OnEventRaised;
+		if (eventHandler != null)
+			eventHandler(this, e);
+	}
 
-		public void RaiseEvent(EventArgs e)
-		{
-			EventHandler eventHandler = OnEventRaised;
-			if (eventHandler != null)
-				eventHandler(this, e);
-		}
-
-		~EventOne()
-		{
-			Interlocked.Decrement(ref _count);
-		}
+	~EventOne()
+	{
+		Interlocked.Decrement(ref _count);
 	}
 }

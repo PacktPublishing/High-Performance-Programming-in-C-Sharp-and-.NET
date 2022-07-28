@@ -1,5 +1,5 @@
-﻿namespace CH09_TcpServer
-{
+﻿namespace CH09_TcpServer;
+
 	using System;
 	using System.Net.Sockets;
 	using System.Runtime.InteropServices;
@@ -8,31 +8,30 @@
 
 	internal static class SocketExtensions
 	{
-        public static Task<int> ReceiveAsync(this Socket socket, Memory<byte> memory, SocketFlags socketFlags)
-        {
+    public static Task<int> ReceiveAsync(this Socket socket, Memory<byte> memory, SocketFlags socketFlags)
+    {
 			ArraySegment<byte> arraySegment = GetArray(memory);
-            return SocketTaskExtensions.ReceiveAsync(socket, arraySegment, socketFlags);
-        }
+        return SocketTaskExtensions.ReceiveAsync(socket, arraySegment, socketFlags);
+    }
 
-        public static string GetString(this Encoding encoding, ReadOnlyMemory<byte> memory)
-        {
+    public static string GetString(this Encoding encoding, ReadOnlyMemory<byte> memory)
+    {
 			ArraySegment<byte> arraySegment = GetArray(memory);
-            return encoding.GetString(arraySegment.Array, arraySegment.Offset, arraySegment.Count);
-        }
+        return encoding.GetString(arraySegment.Array, arraySegment.Offset, arraySegment.Count);
+    }
 
-        private static ArraySegment<byte> GetArray(Memory<byte> memory)
+    private static ArraySegment<byte> GetArray(Memory<byte> memory)
+    {
+        return GetArray((ReadOnlyMemory<byte>)memory);
+    }
+
+    private static ArraySegment<byte> GetArray(ReadOnlyMemory<byte> memory)
+    {
+        if (!MemoryMarshal.TryGetArray(memory, out var result))
         {
-            return GetArray((ReadOnlyMemory<byte>)memory);
+            throw new InvalidOperationException("Buffer backed by array was expected");
         }
 
-        private static ArraySegment<byte> GetArray(ReadOnlyMemory<byte> memory)
-        {
-            if (!MemoryMarshal.TryGetArray(memory, out var result))
-            {
-                throw new InvalidOperationException("Buffer backed by array was expected");
-            }
-
-            return result;
-        }
+        return result;
     }
 }

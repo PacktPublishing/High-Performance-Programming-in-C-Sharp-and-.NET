@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31825.309
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH02_ExcelVstoAddIn", "CH02_ExcelVstoAddIn.csproj", "{A2411A08-B4C5-4FC7-9D30-677965D38106}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH02_ExcelVstoAddIn", "CH02_ExcelVstoAddIn\CH02_ExcelVstoAddIn.csproj", "{116540A0-8582-488A-A0AF-F3575E271972}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2411A08-B4C5-4FC7-9D30-677965D38106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2411A08-B4C5-4FC7-9D30-677965D38106}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2411A08-B4C5-4FC7-9D30-677965D38106}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2411A08-B4C5-4FC7-9D30-677965D38106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{116540A0-8582-488A-A0AF-F3575E271972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116540A0-8582-488A-A0AF-F3575E271972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116540A0-8582-488A-A0AF-F3575E271972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116540A0-8582-488A-A0AF-F3575E271972}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {93657B2F-7450-4BCB-94A8-D32C0D78ADC2}
+		SolutionGuid = {49751814-ED06-4BE8-B054-D8A2E1D4E2DF}
 	EndGlobalSection
 EndGlobal

@@ -1,35 +1,34 @@
-﻿using System;
+﻿namespace CH14_Multithreading;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CH14_Multithreading
+internal class LockMutextExample
 {
-    internal class LockMutextExample
+    private object _lockObject = new();
+    private static readonly Mutex _mutex = new();
+
+    public void UsingLockObject()
     {
-        private object _lockObject = new();
-        private static readonly Mutex _mutex = new();
-
-        public void UsingLockObject()
+        lock(_lockObject)
         {
-            lock(_lockObject)
-            {
-                // Perform your unsafe code here.
-            }
+            // Perform your unsafe code here.
         }
+    }
 
-        public void UsingMutext()
+    public void UsingMutext()
+    {
+        try
         {
-            try
-            {
-                _mutex.WaitOne();
-                // ... Do work here ...
-            }
-            finally
-            {
-                _mutex.ReleaseMutex();
-            }
+            _mutex.WaitOne();
+            // ... Do work here ...
+        }
+        finally
+        {
+            _mutex.ReleaseMutex();
         }
     }
 }

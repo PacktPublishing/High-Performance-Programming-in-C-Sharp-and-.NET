@@ -1,9 +1,8 @@
-﻿namespace CH01_PatternMatching
+﻿namespace CH01_PatternMatching;
+
+internal record Product
 {
-    internal record Product
-    {
-        public string Name { get; init; }
-        public string Description { get; init; }
-        public decimal UnitPrice { get; init; }
-    }
+    public string Name { get; init; }
+    public string Description { get; init; }
+    public decimal UnitPrice { get; init; }
 }

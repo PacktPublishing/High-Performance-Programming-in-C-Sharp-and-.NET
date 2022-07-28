@@ -1,13 +1,12 @@
-﻿using System;
+﻿namespace CH01_Records;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CH01_Records
+internal record Publisher
 {
-    internal record Publisher
-    {
-        public string PublisherName { get; init; }
-    }
+    public string PublisherName { get; init; }
 }
