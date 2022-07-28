@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>AnyCPU;x64;x86</Platforms>
     <AppendTargetFrameworkToPath>false</AppendTargetFrameworkToPath>
   </PropertyGroup>
 
@@ -24,7 +24,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="bin\Debug\netcoreapp3.1\CH02_NativeLibrary.dll" />
+    <Compile Remove="bin\Debug\netcoreapp3.1\**" />
+    <EmbeddedResource Remove="bin\Debug\netcoreapp3.1\**" />
+    <None Remove="bin\Debug\netcoreapp3.1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
 
 </Project>
