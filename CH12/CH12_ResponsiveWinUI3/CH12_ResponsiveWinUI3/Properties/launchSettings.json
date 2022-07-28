@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CH12_ResponsiveWinUI3 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "CH12_ResponsiveWinUI3 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

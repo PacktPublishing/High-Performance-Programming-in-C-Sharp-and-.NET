@@ -11,8 +11,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
-using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -27,12 +25,12 @@ namespace CH12_ResponsiveWinUI3
     public sealed partial class MainWindow : Window, INotifyPropertyChanged
     {
         private DispatcherTimer _dispatcherTimer;
-        public event PropertyChangedEventHandler PropertyChanged;
         private bool _isWorking;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             _dispatcherTimer = new DispatcherTimer();
             _dispatcherTimer.Interval = TimeSpan.FromSeconds(10);
             _dispatcherTimer.Tick += DispatcherTimer_Tick;
@@ -40,27 +38,24 @@ namespace CH12_ResponsiveWinUI3
 
         private void DispatcherTimer_Tick(object sender, object e)
         {
-            _dispatcherTimer.Stop();
+            _dispatcherTimer?.Stop();
             _dispatcherTimer.Tick -= DispatcherTimer_Tick;
             IsWorking = false;
-            MessageTextBlock.Text = "Work completed.";
-        }
-
-        public bool IsWorking
-        {
-            get { return _isWorking; }
-            set
-            {
-                _isWorking = value;
-                NotifyPropertyChanged("IsWorking");
-            }
+            MessageTextBlock.Text = "Work completed";
         }
 
         private void NotifyPropertyChanged(string property)
         {
             if (PropertyChanged != null)
-            {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+
+        public bool IsWorking { 
+            get { return _isWorking; } 
+            set
+            {
+                _isWorking = value;
+                NotifyPropertyChanged("IsWorking");
             }
         }
 

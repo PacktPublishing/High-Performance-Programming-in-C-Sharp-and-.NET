@@ -8,9 +8,14 @@
     mc:Ignorable="d">
 
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-        <ProgressRing x:Name="ProgressRingIndicator1" IsActive="{x:Bind IsWorking, Mode=OneWay}" Visibility="{x:Bind IsWorking, Mode=OneWay}" />
-        <Button x:Name="DoWorkButton" Content="Do Work" Click="DoWorkButton_Click" />
+        <ProgressRing x:Name="ProgressRingIndicator1"
+                      IsActive="{x:Bind IsWorking, Mode=OneWay}"
+                      Visibility="{x:Bind IsWorking, Mode=OneWay}"
+        />
+        <Button x:Name="DoWorkButton"
+                Content="Do Work"
+                Click="DoWorkButton_Click"
+        />
         <TextBlock x:Name="MessageTextBlock" />
     </StackPanel>
-
 </Window>
