@@ -4,13 +4,15 @@
 	using BenchmarkDotNet.Order;
 	using System;
 	using System.Collections.Generic;
+	using System.Linq;
 
 	[MemoryDiagnoser]
 	[Orderer(SummaryOrderPolicy.Declared)]
 	[RankColumn]
 	public class Yield
-	{
-		public void YieldSample()
+    {
+
+        public void YieldSample()
 		{
 			DoCountdown();
 			PrintMonthsOfYear();
@@ -57,27 +59,28 @@
 		[Benchmark]
 		public void GetValuesBenchmark()
 		{
-			var data = GetValues();
+            var data = GetValues();
 		}
 
 		[Benchmark]
 		public void GetValuesYieldBenchmark()
-		{
-			var data = GetValuesYield();
+        {
+            var data = GetValuesYield();
 		}
 
-		public IEnumerable<long> GetValues()
-		{
-			List<long> list = new List<long>();
-			for (long i = 0; i < 1000000; i++)
-				list.Add(i);
-			return list;
-		}
+        public IEnumerable<object[]> GetValues()
+        {
+            return new List<object[]>
+			{
+			   new object[] { 1, 2, 3 },
+			   new object[] { -1, -2, -3 }
+			};
+        }
 
-		public IEnumerable<long> GetValuesYield()
-		{
-			for (long i = 0; i < 1000000; i++)
-				yield return i;
-		}
-	}
+		public IEnumerable<object[]> GetValuesYield ()
+        {
+            yield return new object[] { 1, 2, 3 };
+            yield return new object[] { -1, -2, -3 };
+        }
+    }
 }

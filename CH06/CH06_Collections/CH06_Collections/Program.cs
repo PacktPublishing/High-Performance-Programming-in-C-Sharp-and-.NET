@@ -11,7 +11,7 @@
 	{
 		static void Main(string[] args)
 		{
-			BenchmarkRunner.Run<Equality>();
+			BenchmarkRunner.Run<Yield>();
 		}
 
 		private static void IndexerExample()
