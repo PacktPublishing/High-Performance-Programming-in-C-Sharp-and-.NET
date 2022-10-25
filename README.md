@@ -75,3 +75,7 @@ Currently employed by a leading software house, he develops and supports order p
 ## Other books by the authors
 [Clean Code in C# ](https://www.packtpub.com/product/clean-code-in-c/9781838982973?utm_source=github&utm_medium=repository&utm_campaign=)
 
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781800564718">https://packt.link/free-ebook/9781800564718 </a> </p>
